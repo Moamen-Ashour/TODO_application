@@ -1,3 +1,4 @@
+import 'package:coach_nearest/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
 
 class Task_List_Tab extends StatelessWidget {
@@ -8,6 +9,8 @@ class Task_List_Tab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: GREEN_BACKGROUND
+    );
   }
 }
