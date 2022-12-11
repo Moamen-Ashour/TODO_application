@@ -20,7 +20,9 @@ class AppTranslations extends Translations{
       "Select language":"Select language",
       "Select Time":"Select Time",
       "Another" : "Add Another Languages",
-      "Close"  : "Close"
+      "Close"  : "Close",
+      'Double Click To Light Mode!' : 'Double Click To Light Mode!',
+      'One Click To Dark Mode!' : 'One Click To Dark Mode!'
     },
 
 
@@ -32,6 +34,8 @@ class AppTranslations extends Translations{
       "Light"   : 'مضيء',
       'Dark'    : 'غامق',
       "Setting" : "الإعدادات",
+      'Double Click To Light Mode!' : 'إضغظ مرتين للوضع الساطع',
+      'One Click To Dark Mode!' : 'إضغظ مرة للوضع الداكن',
       "ToDo List": "قائمة المهام",
       "Add new Task":"إضافة مهمه جديدة",
       'enter your task':'اكتب مهمتك',

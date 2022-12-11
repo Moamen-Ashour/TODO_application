@@ -1,12 +1,14 @@
-
 import 'package:coach_nearest/models/list_settings_provider.dart';
 import 'package:coach_nearest/modules/New_Task/add_new_task.dart';
 import 'package:coach_nearest/modules/settings/setting.dart';
 import 'package:coach_nearest/modules/task_list/taskList.dart';
+import 'package:coach_nearest/shared/styles/ThemeOfData.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+
+import '../shared/styles/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
@@ -16,8 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  final navigationKey  = GlobalKey<CurvedNavigationBarState>();
+  final navigationKey = GlobalKey<CurvedNavigationBarState>();
 
   int index = 2;
 
@@ -30,64 +31,79 @@ class _HomeScreenState extends State<HomeScreen> {
     Setting_Tab()
   ];
 
-
+  bool itsDark = true;
 
   @override
   Widget build(BuildContext context) {
-
     var provider = Provider.of<list_settings_provider>(context);
 
+    final items = <Widget>[
+      Icon(
+        Icons.list,
+        size: 30,
+      ),
+      Icon(Icons.add, size: 30),
+      GestureDetector(
+          onDoubleTap: () {
+            Get.changeTheme(lightTheme());
+            itsDark = false;
+    var snackBar = SnackBar(
+      backgroundColor: GREEN_BACKGROUND,
+    content: Text('One Click To Dark Mode!'.tr,style: TextStyle(color: Colors.black),),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
+            },
+          onTap: () {
+            Get.changeTheme(darkTheme());
+            itsDark = true;
+            var snackBar = SnackBar(
+              backgroundColor: GREEN_BACKGROUND,
+              content: Text('Double Click To Light Mode!'.tr,style: TextStyle(color: Colors.amber),),);
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
-    final items = <Widget> [
-      Icon(Icons.list,size: 30,),
-      Icon(Icons.add,size: 30),
-      Icon(Icons.dark_mode_outlined,size: 30),
-      Icon(Icons.settings,size: 30),
+          },
+          child: itsDark == true
+              ? Icon(Icons.dark_mode_outlined, size: 30)
+              : Icon(Icons.sunny, size: 30)),
+      Icon(Icons.settings, size: 30),
     ];
 
-
     return SafeArea(
-      child: Stack(
-        children:[
-          Scaffold(
+      child: Stack(children: [
+        Scaffold(
           body: ToDoScreens[index],
           appBar: AppBar(
             title: Text("ToDo List".tr),
           ),
-            bottomNavigationBar: Theme(
-              data: Theme.of(context).copyWith(
-                iconTheme: IconThemeData(color: Colors.white)
-              ),
-              child: CurvedNavigationBar(
-                key: navigationKey,
-                backgroundColor: Colors.transparent,
-                buttonBackgroundColor: Colors.blueAccent,
-                color: Colors.blueAccent,
-                animationDuration: Duration(milliseconds: 600),
-                animationCurve: Curves.easeInOut,
-                items: items,
+          bottomNavigationBar: CurvedNavigationBar(
+              key: navigationKey,
+              animationDuration: Duration(milliseconds: 600),
+              animationCurve: Curves.easeInOut,
+              items: items,
               height: 60,
-                index: index,
-                onTap: (index){
-                  setState(() {
-                    this.index = index;
-                  });
-                  if(this.index == 1){
-                    showModalBottomSheet(context: context, builder: (context) => Center(
-                      child: ElevatedButton(
-                        child: Text("Close".tr),
-                        onPressed: ()=> Navigator.pop(context),
-                      ),
-                    )
-                    );
-                  }
-                },
-              ),
-            ),
+              index: index,
+              onTap: (index) {
+                setState(() {
+                  this.index = index;
+                });
+                if (this.index == 1) {
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (context) => Center(
+                            child: ElevatedButton(
+                              child: Text("Close".tr),
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                          ));
+                }
+                if (this.index == 2) {
+                  // Get.changeTheme(darkTheme());
+                this.index =3;
+                }
+              }),
         ),
-        ]
-      ),
+      ]),
     );
   }
 }

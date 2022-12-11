@@ -3,6 +3,8 @@ import 'package:coach_nearest/modules/settings/setting.dart';
 import 'package:coach_nearest/modules/splash_screen/splash_screen_animated.dart';
 import 'package:coach_nearest/modules/task_list/taskList.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -42,9 +44,9 @@ class MyApp extends StatelessWidget {
 
       },
       debugShowCheckedModeBanner: false,
-      theme: ThemeOfData.LightTheme,
-      darkTheme: ThemeOfData.DarkTheme,
-      themeMode: ThemeMode.light,
+      // theme: lightTheme(),
+      darkTheme: darkTheme(),
+      themeMode: ThemeMode.system,
     );
   }
 }

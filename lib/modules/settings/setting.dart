@@ -2,12 +2,19 @@ import 'package:coach_nearest/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Setting_Tab extends StatelessWidget {
+import '../../shared/styles/ThemeOfData.dart';
+
+class Setting_Tab extends StatefulWidget {
 
  Setting_Tab({Key? key}) : super(key: key);
 
   static const String routeName = "Setting";
 
+  @override
+  State<Setting_Tab> createState() => _Setting_TabState();
+}
+
+class _Setting_TabState extends State<Setting_Tab> {
   final locales2 = [
     Locale('en'),
     Locale('ar'),
@@ -50,8 +57,7 @@ class Setting_Tab extends StatelessWidget {
         ));
   }
 
-
-
+  bool itsDark = true;
 
   @override
   Widget build(BuildContext context) {
@@ -96,23 +102,31 @@ class Setting_Tab extends StatelessWidget {
                        Text("Mode".tr,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15,color: COLOR_BLACK)),
                        Padding(
                          padding: const EdgeInsets.all(8.0),
-                         child: Center(child: ElevatedButton.icon(
-                           onPressed: (){},
-                           label: const Text('Light',style: TextStyle(color: PRIMARY_COLOR),),
-                           style:ElevatedButton. styleFrom(
-                             side: BorderSide(
-                                 color: PRIMARY_COLOR
-                             ),
-                             minimumSize: Size(200, 50),
-                             backgroundColor: Colors.white,
-                           ), icon: Icon(
-                           Icons.light_mode,
-                           color: Colors.yellow,
-                           size: 24.0,
+                         child: Center(child:GestureDetector(
+                             onDoubleTap: () {
+                               setState(() {
+                                 Get.changeTheme(lightTheme());
+                                 itsDark = false;
+                                 const snackBar = SnackBar(
+                                   content: Text('One Click To Dark Mode!',style: TextStyle(color: Colors.black),),
+                                 );
+                                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                               });
+                               },
+                             onTap: () {
+                               setState(() {
+                                 Get.changeTheme(darkTheme());
+                                 itsDark = true;
+                                 const snackBar = SnackBar(
+                                   content: Text('Double Click To Light Mode!',style: TextStyle(color: Colors.amber),),
+                                 );
+                                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                               });
+                             },
+                             child: itsDark == true
+                                 ? Icon(Icons.dark_mode_outlined, size: 30,color: Colors.black,)
+                                 : Icon(Icons.sunny, size: 30,color: Colors.amber,)),
                          ),
-
-
-                         ),),
                        )
                      ],
                    ),
