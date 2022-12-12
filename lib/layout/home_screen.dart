@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: CurvedNavigationBar(
               color: itsDark ? Colors.black : Colors.white,
               backgroundColor: itsDark ? GREEN_BACKGROUND : GREEN_BACKGROUND,
-                buttonBackgroundColor: itsDark ? Colors.black : Colors.white,
+                buttonBackgroundColor: itsDark ? Colors.blueGrey : Color(0xfffdf6e4),
                 key: navigationKey,
                 animationDuration: Duration(milliseconds: 600),
                 animationCurve: Curves.easeInOut,
