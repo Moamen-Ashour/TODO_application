@@ -44,6 +44,7 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   get: ^4.6.5
   google_fonts: ^3.0.1
+  date_picker_timeline: ^1.2.3
 
 dev_dependencies:
   flutter_test:
@@ -71,7 +72,8 @@ flutter:
   assets:
     - assets/images/img/
     - assets/images/icons/
-    - assets/images/img/splashscreeflutter pub add getn/
+    - assets/images/img/splashscree/
+    - assets/images/img/stillnotfinished/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

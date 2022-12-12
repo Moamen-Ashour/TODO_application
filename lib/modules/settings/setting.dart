@@ -63,7 +63,6 @@ class _Setting_TabState extends State<Setting_Tab> {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Container(
-        color: GREEN_BACKGROUND,
         child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -94,43 +93,43 @@ class _Setting_TabState extends State<Setting_Tab> {
                       ],
                     ),
                   ),
-                 Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: Column(
-                     crossAxisAlignment: CrossAxisAlignment.start,
-                     children: [
-                       Text("Mode".tr,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15,color: COLOR_BLACK)),
-                       Padding(
-                         padding: const EdgeInsets.all(8.0),
-                         child: Center(child:GestureDetector(
-                             onDoubleTap: () {
-                               setState(() {
-                                 Get.changeTheme(lightTheme());
-                                 itsDark = false;
-                                 const snackBar = SnackBar(
-                                   content: Text('One Click To Dark Mode!',style: TextStyle(color: Colors.black),),
-                                 );
-                                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                               });
-                               },
-                             onTap: () {
-                               setState(() {
-                                 Get.changeTheme(darkTheme());
-                                 itsDark = true;
-                                 const snackBar = SnackBar(
-                                   content: Text('Double Click To Light Mode!',style: TextStyle(color: Colors.amber),),
-                                 );
-                                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                               });
-                             },
-                             child: itsDark == true
-                                 ? Icon(Icons.dark_mode_outlined, size: 30,color: Colors.black,)
-                                 : Icon(Icons.sunny, size: 30,color: Colors.amber,)),
-                         ),
-                       )
-                     ],
-                   ),
-                 )
+                 // Padding(
+                 //   padding: const EdgeInsets.all(8.0),
+                 //   child: Column(
+                 //     crossAxisAlignment: CrossAxisAlignment.start,
+                 //     children: [
+                 //       Text("Mode".tr,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15,color: COLOR_BLACK)),
+                 //       Padding(
+                 //         padding: const EdgeInsets.all(8.0),
+                 //         child: Center(child:GestureDetector(
+                 //             onDoubleTap: () {
+                 //               setState(() {
+                 //                 Get.changeTheme(lightTheme());
+                 //                 itsDark = false;
+                 //                 const snackBar = SnackBar(
+                 //                   content: Text('One Click To Dark Mode!',style: TextStyle(color: Colors.black),),
+                 //                 );
+                 //                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                 //               });
+                 //               },
+                 //             onTap: () {
+                 //               setState(() {
+                 //                 Get.changeTheme(darkTheme());
+                 //                 itsDark = true;
+                 //                 const snackBar = SnackBar(
+                 //                   content: Text('Double Click To Light Mode!',style: TextStyle(color: Colors.amber),),
+                 //                 );
+                 //                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                 //               });
+                 //             },
+                 //             child: itsDark == true
+                 //                 ? Icon(Icons.dark_mode_outlined, size: 30,color: Colors.black,)
+                 //                 : Icon(Icons.sunny, size: 30,color: Colors.amber,)),
+                 //         ),
+                 //       )
+                 //     ],
+                 //   ),
+                 // )
                 ],
               ),
       )

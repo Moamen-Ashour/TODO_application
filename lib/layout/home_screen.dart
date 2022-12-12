@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+import '../modules/task_added_screen/task_added_screen.dart';
 import '../shared/styles/colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,12 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> ToDoScreens = [
     Task_List_Tab(),
-    add_new_task(),
+    task_added_screen(),
     Setting_Tab(),
     Setting_Tab()
   ];
 
-  bool itsDark = true;
+  bool itsDark = false;
 
   @override
   Widget build(BuildContext context) {
@@ -72,11 +73,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Stack(children: [
         Scaffold(
+          backgroundColor: GREEN_BACKGROUND,
           body: ToDoScreens[index],
           appBar: AppBar(
             title: Text("ToDo List".tr),
           ),
           bottomNavigationBar: CurvedNavigationBar(
+            color: itsDark ? Colors.black : Colors.white,
+            backgroundColor: itsDark ? GREEN_BACKGROUND : GREEN_BACKGROUND,
+              buttonBackgroundColor: itsDark ? Colors.black : Colors.blueAccent,
               key: navigationKey,
               animationDuration: Duration(milliseconds: 600),
               animationCurve: Curves.easeInOut,
@@ -91,11 +96,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   showModalBottomSheet(
                       context: context,
                       builder: (context) => Center(
-                            child: ElevatedButton(
-                              child: Text("Close".tr),
-                              onPressed: () => Navigator.pop(context),
-                            ),
-                          ));
+                            child: add_new_task()
+                            // ElevatedButton(
+                            //   child: Text("Close".tr),
+                            //   onPressed: () => Navigator.pop(context),
+                            // ),
+                          )
+                  );
                 }
                 if (this.index == 2) {
                   // Get.changeTheme(darkTheme());

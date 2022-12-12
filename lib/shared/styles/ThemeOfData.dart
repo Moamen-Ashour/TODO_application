@@ -9,7 +9,7 @@ ThemeData lightTheme() {
     return base.copyWith(
       headline1: base.headline1!.copyWith(
         fontSize: 22.0,
-        color: COLOR_BLACK,
+        color: Colors.black
       ),
     );
   }
@@ -36,9 +36,7 @@ ThemeData lightTheme() {
           iconTheme: IconThemeData(color: Colors.white)),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
 
-        backgroundColor: Colors.transparent,
-        selectedItemColor: GREEN_BACKGROUND,
-        unselectedItemColor: Colors.grey,
+       selectedIconTheme: IconThemeData(color: Colors.white)
         // type: BottomNavigationBarType.fixed
       )
       // bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -59,9 +57,9 @@ ThemeData darkTheme() {
     );
   }
 
-  final ThemeData basedark = ThemeData.dark();
-  return basedark.copyWith(
-      textTheme: darkTextTheme(basedark.textTheme),
+  final ThemeData base2 = ThemeData.dark();
+  return base2.copyWith(
+      textTheme: darkTextTheme(base2.textTheme),
       primaryColor: DARK_PRIMARY_COLOR,
       scaffoldBackgroundColor: DARK_PRIMARY_COLOR,
       colorScheme: ColorScheme(
@@ -77,14 +75,12 @@ ThemeData darkTheme() {
           surface: DARK_PRIMARY_COLOR,
           onSurface: Colors.white),
       appBarTheme: AppBarTheme(
-
           backgroundColor: DARK_BLUE_BACKGROUND,
           iconTheme: IconThemeData(color: DARK_BLUE_BACKGROUND)),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-
         backgroundColor: DARK_BLUE_BACKGROUND,
         selectedItemColor: GREEN_BACKGROUND,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.black,
         // type: BottomNavigationBarType.fixed
       )
     // bottomNavigationBarTheme: BottomNavigationBarThemeData(

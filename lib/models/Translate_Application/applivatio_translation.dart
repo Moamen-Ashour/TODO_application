@@ -18,16 +18,19 @@ class AppTranslations extends Translations{
       "Add new Task":"Add new Task",
       'enter your task':'enter your task',
       "Select language":"Select language",
-      "Select Time":"Select Time",
+      "Select Date":"Select Date",
       "Another" : "Add Another Languages",
       "Close"  : "Close",
       'Double Click To Light Mode!' : 'Double Click To Light Mode!',
-      'One Click To Dark Mode!' : 'One Click To Dark Mode!'
+      'One Click To Dark Mode!' : 'One Click To Dark Mode!',
+      "langCalender":"en",
+
     },
 
 
     'ar_EG': {
       "Language": "اللغة",
+      "langCalender":"ar",
       "English" : "الانجليزية",
       "Arabic"  : "العربية",
       "Mode"    : "النسق",
@@ -39,7 +42,7 @@ class AppTranslations extends Translations{
       "ToDo List": "قائمة المهام",
       "Add new Task":"إضافة مهمه جديدة",
       'enter your task':'اكتب مهمتك',
-      "Select Time":"إختار الوقت",
+      "Select Date":"إختار التاريخ",
       "Another" : "اضف لغة جديدة",
       "Select language":"اختار لغتك",
       "Close" : "قفل"
