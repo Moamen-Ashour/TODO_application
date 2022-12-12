@@ -78,37 +78,43 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: AppBar(
             title: Text("ToDo List".tr),
           ),
-          bottomNavigationBar: CurvedNavigationBar(
-            color: itsDark ? Colors.black : Colors.white,
-            backgroundColor: itsDark ? GREEN_BACKGROUND : GREEN_BACKGROUND,
-              buttonBackgroundColor: itsDark ? Colors.black : Colors.blueAccent,
-              key: navigationKey,
-              animationDuration: Duration(milliseconds: 600),
-              animationCurve: Curves.easeInOut,
-              items: items,
-              height: 60,
-              index: index,
-              onTap: (index) {
-                setState(() {
-                  this.index = index;
-                });
-                if (this.index == 1) {
-                  showModalBottomSheet(
-                      context: context,
-                      builder: (context) => Center(
-                            child: add_new_task()
-                            // ElevatedButton(
-                            //   child: Text("Close".tr),
-                            //   onPressed: () => Navigator.pop(context),
-                            // ),
-                          )
-                  );
-                }
-                if (this.index == 2) {
-                  // Get.changeTheme(darkTheme());
-                this.index =3;
-                }
-              }),
+          bottomNavigationBar: Theme(
+            data: Theme.of(context).copyWith(
+              iconTheme: IconThemeData(
+                  color:itsDark ? Colors.white : Colors.blue)
+            ),
+            child: CurvedNavigationBar(
+              color: itsDark ? Colors.black : Colors.white,
+              backgroundColor: itsDark ? GREEN_BACKGROUND : GREEN_BACKGROUND,
+                buttonBackgroundColor: itsDark ? Colors.black : Colors.white,
+                key: navigationKey,
+                animationDuration: Duration(milliseconds: 600),
+                animationCurve: Curves.easeInOut,
+                items: items,
+                height: 60,
+                index: index,
+                onTap: (index) {
+                  setState(() {
+                    this.index = index;
+                  });
+                  if (this.index == 1) {
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (context) => Center(
+                              child: add_new_task()
+                              // ElevatedButton(
+                              //   child: Text("Close".tr),
+                              //   onPressed: () => Navigator.pop(context),
+                              // ),
+                            )
+                    );
+                  }
+                  if (this.index == 2) {
+                    // Get.changeTheme(darkTheme());
+                  this.index =3;
+                  }
+                }),
+          ),
         ),
       ]),
     );

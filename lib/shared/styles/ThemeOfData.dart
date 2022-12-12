@@ -52,20 +52,21 @@ ThemeData darkTheme() {
     return base2.copyWith(
       headline1: base2.headline1!.copyWith(
         fontSize: 22.0,
-        color: Colors.black,
+        color: Colors.white,
       ),
     );
   }
 
   final ThemeData base2 = ThemeData.dark();
   return base2.copyWith(
+
       textTheme: darkTextTheme(base2.textTheme),
-      primaryColor: DARK_PRIMARY_COLOR,
+      primaryColor: Colors.white,
       scaffoldBackgroundColor: DARK_PRIMARY_COLOR,
       colorScheme: ColorScheme(
           brightness: Brightness.dark,
-          primary: DARK_PRIMARY_COLOR,
-          onPrimary: Colors.white,
+          primary: Colors.white,
+          onPrimary: DARK_PRIMARY_COLOR,
           secondary: DARK_BLUE_BACKGROUND,
           onSecondary: Colors.white,
           error: Colors.red,
