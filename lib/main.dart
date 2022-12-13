@@ -9,14 +9,22 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'models/Providers/select_date_provider.dart';
 import 'models/Translate_Application/applivatio_translation.dart';
 import 'shared/styles/ThemeOfData.dart';
 import 'layout/home_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(create: (BuildContext context) => list_settings_provider(),
-  child: MyApp()));
+  runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) { return list_settings_provider();}),
+          ChangeNotifierProvider(create: (context) { return select_date();}),
+  ],
+  child: MyApp()),
+
+  );
 }
 
 class MyApp extends StatelessWidget {

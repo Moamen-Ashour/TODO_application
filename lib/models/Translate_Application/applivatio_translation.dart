@@ -24,7 +24,16 @@ class AppTranslations extends Translations{
       'Double Click To Light Mode!' : 'Double Click To Light Mode!',
       'One Click To Dark Mode!' : 'One Click To Dark Mode!',
       "langCalender":"en",
-
+      "Year": "Year",
+      "Month": "Month",
+      "Day": "Day",
+      "Please write title task":"Please write title task",
+      "Please write description task":"Please write description task",
+      "title" : "title",
+      "description" : "description",
+      "Write Your New Task":"Write Your New Task",
+      "Add Task":"Add Task",
+      "Working On It":"Working On It"
     },
 
 
@@ -45,7 +54,18 @@ class AppTranslations extends Translations{
       "Select Date":"إختار التاريخ",
       "Another" : "اضف لغة جديدة",
       "Select language":"اختار لغتك",
-      "Close" : "قفل"
+      "Close" : "قفل",
+      "Year": "السنة",
+      "Month": "الشهر",
+      "Day": "اليوم",
+      "Please write title task":"من فضلك ادخل اسم للمهمه",
+      "Please write description task":"من فضلك ادخل وصف للمهمه",
+      "title" : "اسم المهمه",
+      "description" : "وصف المهمه",
+      "Write Your New Task":"ٌاكتب مهمه جديده",
+      "Add Task":"اضف المهمه",
+      "Working On It":"جاري العمل على المهمه"
+
     }
 
 

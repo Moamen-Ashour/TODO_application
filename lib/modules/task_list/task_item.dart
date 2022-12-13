@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class task_Item extends StatelessWidget {
 
@@ -32,8 +33,8 @@ class task_Item extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Title",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
-                Text("Description",style: TextStyle(fontSize: 14,fontWeight: FontWeight.normal,color: Colors.brown),)
+                Text("title".tr,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
+                Text("description".tr,style: TextStyle(fontSize: 14,fontWeight: FontWeight.normal,color: Colors.brown),)
               ],
             ),
           ),

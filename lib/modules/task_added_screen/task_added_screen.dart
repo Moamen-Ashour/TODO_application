@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class task_added_screen extends StatelessWidget {
@@ -16,7 +17,7 @@ class task_added_screen extends StatelessWidget {
         children: [
           LottieBuilder.asset("assets/images/img/stillnotfinished/issue1.json"),
           SizedBox(height: 20,),
-          Text("Working On It",style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.bold,fontSize: 30),)
+          Text("Working On It".tr,style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.bold,fontSize: 30),)
         ],
       )),
     );
