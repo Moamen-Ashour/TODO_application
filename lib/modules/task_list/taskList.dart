@@ -69,7 +69,7 @@ class Task_List_Tab extends StatelessWidget {
                     return Center(child: CircularProgressIndicator());
                   }
                   if (snapshot.hasError) {
-                    return Center(child: Text("Error Please Try Again Later"));
+                    return Center(child: Text("Error Please Try Again Later".tr));
                   }
 
 
@@ -78,7 +78,7 @@ class Task_List_Tab extends StatelessWidget {
                   if (dataModel.isEmpty) {
                      return Padding(
                        padding: const EdgeInsets.only(top:58.0),
-                       child: Text("No Data",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.lightBlue),),
+                       child: Text("No Data".tr,style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.lightBlue),),
                      );
                   }
 

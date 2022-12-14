@@ -44,7 +44,7 @@ class _add_new_taskState extends State<add_new_task> {
 
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
+      margin: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
           Padding(
@@ -54,6 +54,7 @@ class _add_new_taskState extends State<add_new_task> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
+          SizedBox(height: 5),
           Form(
               key: FormKey,
               child: Expanded(
@@ -84,12 +85,10 @@ class _add_new_taskState extends State<add_new_task> {
                                 borderRadius: BorderRadius.circular(30))),
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
                     Expanded(
                       child: TextFormField(
                         // autofocus: true,
+                        maxLines: 2,
                         focusNode: descriptionInput,
                         controller: descriptionController,
                         validator: (text) {
@@ -151,29 +150,32 @@ class _add_new_taskState extends State<add_new_task> {
                     SizedBox(
                       height: 20,
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          if (FormKey.currentState!.validate()) {
-                            Data_Model DM =
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {
+                              if (FormKey.currentState!.validate()) {
+                                Data_Model DM =
                                 Data_Model(title: titleController.text,
-                                  description: descriptionController.text,
-                                  date:DateUtils.dateOnly(selectedDate).microsecondsSinceEpoch);
-                            ShowMessage(context,"Are you sure to add this task?","Yes",(){
-                              addTaskToFirebaseFirestore(DM).then((value){
-                                hideLoding(context);
-                                ShowMessage(context,
-                                    "Task add", "Ok", () {
-                                      Navigator.pop(context);
-                                      Navigator.pop(context);
-                                    });
-                              }).catchError((onError){
-                                 print("Error");
-                              });
-                            });
+                                    description: descriptionController.text,
+                                    date:DateUtils.dateOnly(selectedDate).microsecondsSinceEpoch);
+                                ShowMessage(context,"Are you sure to add this task?".tr,"Yes".tr,(){
+                                  addTaskToFirebaseFirestore(DM);
+                                  hideLoding(context);
+                                  Navigator.pop(context);
+                                });
 
-                          }
-                        },
-                        child: Text("Add Task".tr))
+                              }
+                            },
+                            child: Text("Add Task".tr)),
+                        ElevatedButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("Cancel".tr))
+                      ],
+                    ),
                   ],
                 ),
               ))

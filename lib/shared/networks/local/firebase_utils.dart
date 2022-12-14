@@ -39,3 +39,10 @@ Stream<QuerySnapshot<Data_Model>> getTaskFromFirebaseFirestore(DateTime dateTime
 Future<void> deleteTaskFromFirebaseFirestore(String id){
  return getDataModelCollections().doc(id).delete();
 }
+
+Future<void> updateTaskFromFirebaseFirestore(String id,String title,String description){
+  return getDataModelCollections().doc(id).update({
+    "title": title,
+    "description":description
+  });
+}

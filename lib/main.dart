@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coach_nearest/models/list_settings_provider.dart';
 import 'package:coach_nearest/modules/settings/setting.dart';
 import 'package:coach_nearest/modules/splash_screen/splash_screen_animated.dart';
@@ -20,6 +21,10 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  // to make a DB locale
+  // await FirebaseFirestore.instance.disableNetwork();
+
   runApp(
       MultiProvider(
         providers: [
@@ -46,7 +51,7 @@ class MyApp extends StatelessWidget {
       ],
       locale: Get.deviceLocale,
       translations: AppTranslations(),
-      initialRoute: HomeScreen.routeName,
+      initialRoute: Splash_Screen.routeName,
       routes: {
         HomeScreen.routeName: (_) => HomeScreen(),
         Splash_Screen.routeName: (_) => Splash_Screen(),

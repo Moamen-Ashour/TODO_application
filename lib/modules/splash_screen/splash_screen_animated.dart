@@ -25,7 +25,7 @@ class Splash_Screen extends StatelessWidget {
               splash: Column(
                 children: [
                   Expanded(child: Image.asset("assets/images/img/logo.png")),
-                  Expanded(child: LottieBuilder.asset("assets/images/img/splashscreen/your_time.json")),
+                  Expanded(child: LottieBuilder.asset("assets/images/img/splashscreen/todo.json")),
                 ],
               ),
               nextScreen: HomeScreen(),
