@@ -45,6 +45,8 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^3.0.1
   date_picker_timeline: ^1.2.3
+  firebase_core: ^2.4.0
+  cloud_firestore: ^4.2.0
 
 dev_dependencies:
   flutter_test:
@@ -72,7 +74,7 @@ flutter:
   assets:
     - assets/images/img/
     - assets/images/icons/
-    - assets/images/img/splashscree/
+    - assets/images/img/splashscreen/
     - assets/images/img/stillnotfinished/
 
   # An image asset can refer to one or more resolution-specific "variants", see

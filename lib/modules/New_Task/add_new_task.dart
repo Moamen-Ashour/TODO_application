@@ -1,8 +1,12 @@
 import 'package:coach_nearest/models/Providers/select_date_provider.dart';
+import 'package:coach_nearest/shared/networks/local/firebase_utils.dart';
 import 'package:coach_nearest/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+
+import '../../models/Firebase_Models/data_model.dart';
+import '../../shared/components/components.dart';
 
 class add_new_task extends StatefulWidget {
   static const String routeName = "add_new_task";
@@ -16,7 +20,7 @@ class _add_new_taskState extends State<add_new_task> {
 
   TextEditingController titleController = TextEditingController();
 
-  TextEditingController DescriptionController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
 
   GlobalKey<FormState> FormKey = GlobalKey<FormState>();
 
@@ -57,7 +61,7 @@ class _add_new_taskState extends State<add_new_task> {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        autofocus: true,
+                        // autofocus: true,
                         focusNode: titleInput,
                         controller: titleController,
                         validator: (text) {
@@ -85,9 +89,9 @@ class _add_new_taskState extends State<add_new_task> {
                     ),
                     Expanded(
                       child: TextFormField(
-                        autofocus: true,
+                        // autofocus: true,
                         focusNode: descriptionInput,
-                        controller: DescriptionController,
+                        controller: descriptionController,
                         validator: (text) {
                           if (text == "") {
                             return " Please write description task".tr;
@@ -150,7 +154,23 @@ class _add_new_taskState extends State<add_new_task> {
                     ElevatedButton(
                         onPressed: () {
                           if (FormKey.currentState!.validate()) {
-                            print("Saved to DB");
+                            Data_Model DM =
+                                Data_Model(title: titleController.text,
+                                  description: descriptionController.text,
+                                  date:selectedDate.microsecondsSinceEpoch);
+                            ShowMessage(context,"Are you sure to add this task?","Yes",(){
+                              addTaskToFirebaseFirestore(DM).then((value){
+                                hideLoding(context);
+                                ShowMessage(context,
+                                    "Task add", "Ok", () {
+                                      Navigator.pop(context);
+                                      Navigator.pop(context);
+                                    });
+                              }).catchError((onError){
+                                 print("Error");
+                              });
+                            });
+
                           }
                         },
                         child: Text("Add Task".tr))

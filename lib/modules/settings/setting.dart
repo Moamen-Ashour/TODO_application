@@ -15,6 +15,7 @@ class Setting_Tab extends StatefulWidget {
 }
 
 class _Setting_TabState extends State<Setting_Tab> {
+
   final locales2 = [
     Locale('en'),
     Locale('ar'),

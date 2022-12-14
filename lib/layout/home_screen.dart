@@ -100,14 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   if (this.index == 1) {
                     showModalBottomSheet(
                         context: context,
-                        builder: (context) => Center(
-                              child: add_new_task()
-                              // ElevatedButton(
-                              //   child: Text("Close".tr),
-                              //   onPressed: () => Navigator.pop(context),
-                              // ),
-                            )
-                    );
+                        builder: (context) => add_new_task());
                   }
                   if (this.index == 2) {
                     // Get.changeTheme(darkTheme());

@@ -14,8 +14,12 @@ import 'models/Translate_Application/applivatio_translation.dart';
 import 'shared/styles/ThemeOfData.dart';
 import 'layout/home_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
       MultiProvider(
         providers: [
