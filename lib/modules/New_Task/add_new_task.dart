@@ -157,7 +157,7 @@ class _add_new_taskState extends State<add_new_task> {
                             Data_Model DM =
                                 Data_Model(title: titleController.text,
                                   description: descriptionController.text,
-                                  date:selectedDate.microsecondsSinceEpoch);
+                                  date:DateUtils.dateOnly(selectedDate).microsecondsSinceEpoch);
                             ShowMessage(context,"Are you sure to add this task?","Yes",(){
                               addTaskToFirebaseFirestore(DM).then((value){
                                 hideLoding(context);

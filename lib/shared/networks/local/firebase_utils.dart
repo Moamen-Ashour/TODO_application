@@ -3,6 +3,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 
 import '../../../models/Firebase_Models/data_model.dart';
 
@@ -28,4 +29,13 @@ Future<void> addTaskToFirebaseFirestore(Data_Model data_model){
  return docRef.set(data_model);
 
 
+}
+
+
+Stream<QuerySnapshot<Data_Model>> getTaskFromFirebaseFirestore(DateTime dateTime){
+  return getDataModelCollections().where('date',isEqualTo: DateUtils.dateOnly(dateTime).microsecondsSinceEpoch).snapshots();
+}
+
+Future<void> deleteTaskFromFirebaseFirestore(String id){
+ return getDataModelCollections().doc(id).delete();
 }
